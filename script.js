@@ -13,7 +13,7 @@ if (savedTime) {
     updateDisplay();
 }
 
-// Форматування часу (години:хвилини:секунди)
+// Форматування часу
 function formatTime(seconds) {
     const hrs = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
@@ -44,8 +44,21 @@ function stopTimer() {
         isRunning = false;
         startStopButton.textContent = "Розпочати";
         clearInterval(timerInterval);
-        localStorage.setItem("projectTimer", totalTime); // Збереження часу
+        saveSession();
+        localStorage.setItem("projectTimer", totalTime);
     }
+}
+
+// Збереження сеансу
+function saveSession() {
+    const now = new Date();
+    const session = {
+        startTime: formatTime(totalTime),
+        endTime: now.toLocaleString(),
+    };
+    const history = JSON.parse(localStorage.getItem("timerHistory")) || [];
+    history.push(session);
+    localStorage.setItem("timerHistory", JSON.stringify(history));
 }
 
 // Обробка кнопки

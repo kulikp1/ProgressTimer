@@ -1,4 +1,3 @@
-/* Основні стилі */
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -10,45 +9,76 @@ body {
   color: #fff;
 }
 
-/* Контейнер таймера */
-.timer-container {
+.timer-container,
+.history-container {
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
 }
 
-/* Заголовок */
-.timer-title {
+.timer-title,
+.history-title {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #ffffffcc;
 }
 
-/* Дисплей часу */
 #time-display {
   font-size: 4rem;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   letter-spacing: 2px;
 }
 
-/* Кнопка */
 button {
-  font-size: 1.5rem;
-  padding: 15px 40px;
+  font-size: 1.2rem;
+  padding: 10px 20px;
   background: #ff4b2b;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
 }
 
 button:hover {
   background: #ff416c;
-  transform: scale(1.1);
+}
+
+.history-link,
+.back-link {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ffdfba;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.history-link:hover,
+.back-link:hover {
+  color: #ffffff;
+}
+
+#history-list {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+#history-list li {
+  padding: 10px;
+  margin: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #ffffffdd;
 }
